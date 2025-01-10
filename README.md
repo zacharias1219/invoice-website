@@ -1,36 +1,164 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# **Invoice Marshall - Full Stack Invoice Platform**
 
-## Getting Started
+**Invoice Marshall** is a robust full-stack invoice management system designed for businesses and freelancers to streamline invoicing processes. This platform enables seamless invoice creation, email notifications, and user authentication, all integrated with a user-friendly interface.
 
-First, run the development server:
+---
+
+## **Features**
+
+- **Custom Invoice Creation**:
+  - Fully customizable invoice generation with real-time PDF creation using **jspdf**.
+  - Automatically includes client details and payment terms.
+
+- **Email Notifications**:
+  - Sends invoices, payment reminders, and updates via **Mailtrap**.
+  - Customizable email templates built with HTML and a no-code email builder.
+
+- **User Authentication**:
+  - Magic link authentication powered by **Auth.js**.
+  - Secure user data storage and email verification.
+
+- **Dashboard Analytics**:
+  - Comprehensive dashboard with analytics for revenue, pending payments, and issued invoices.
+  - Interactive charts built with **Shadcn UI**.
+
+- **Responsive Design**:
+  - Built with **Next.js 15** and styled using **TailwindCSS** for cross-device compatibility.
+
+- **Database Integration**:
+  - Data storage and retrieval using **PostgreSQL** with **Prisma ORM** for type-safe operations.
+
+---
+
+## **Tech Stack**
+
+- **Frontend**: Next.js 15, TailwindCSS, Shadcn UI
+- **Backend**: Prisma ORM, Neon PostgreSQL, Auth.js
+- **Email Services**: Mailtrap, Nodemailer
+- **PDF Creation**: jspdf
+- **Deployment**: Vercel
+
+---
+
+## **Directory Structure**
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+├── app
+│   ├── components
+│   ├── pages
+│   ├── styles
+│   ├── services
+├── prisma
+│   └── schema.prisma
+├── public
+│   └── assets
+├── utils
+│   └── helpers
+├── constants
+├── README.md
+└── package.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## **Setup and Installation**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### **Prerequisites**
 
-## Learn More
+1. **Node.js**: Version 16 or above.
+2. **Database**: PostgreSQL (Neon or equivalent).
+3. **Mailtrap Account**: Register at [Mailtrap](https://mailtrap.io).
+4. **Environment Variables**:
+   - API keys for Mailtrap and Prisma.
 
-To learn more about Next.js, take a look at the following resources:
+### **Steps**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clone the repository:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   git clone https://github.com/yourusername/invoice-marshall.git
+   cd invoice-marshall
+   ```
 
-## Deploy on Vercel
+2. Install dependencies:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. Setup environment variables:
+   - Create a `.env` file with the following:
+
+     ```env
+     DATABASE_URL=your_database_url
+     MAILTRAP_USER=your_mailtrap_user
+     MAILTRAP_PASS=your_mailtrap_pass
+     AUTH_SECRET=your_auth_secret
+     ```
+
+4. Initialize Prisma:
+
+   ```bash
+   npx prisma generate
+   npx prisma migrate dev
+   ```
+
+5. Run the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+   Access the app at `http://localhost:3000`.
+
+---
+
+## **How It Works**
+
+1. **User Authentication**:
+   - Magic link authentication via Auth.js.
+   - User data securely stored with hashed credentials.
+
+2. **Invoice Management**:
+   - Users can create, edit, and delete invoices.
+   - Automatically generated PDFs and email notifications.
+
+3. **Analytics Dashboard**:
+   - Displays financial data and pending invoices.
+   - Visualizes insights with animated charts.
+
+---
+
+## **Deployment**
+
+1. **Build for Production**:
+
+   ```bash
+   npm run build
+   ```
+
+2. **Deploy**:
+   - Host the app on Vercel or your preferred platform.
+   - Update `.env` for production variables.
+
+---
+
+## **Future Enhancements**
+
+- Add team collaboration features.
+- Implement recurring invoices and reminders.
+- Integrate with third-party accounting software.
+
+---
+
+## **Contributing**
+
+Contributions are welcome! Fork the repository, create a feature branch, and submit a pull request.
+
+---
+
+## **License**
+
+This project is licensed under the MIT License. See the `LICENSE` file for more details.
+
+---
